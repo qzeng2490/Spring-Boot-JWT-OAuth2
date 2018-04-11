@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.io.Serializable;
+import java.util.HashSet;
 
 @Data
 @Entity
@@ -20,4 +21,13 @@ public class Role implements Serializable {
     private String id;
 
     private String name;    //角色名称
+
+    public Role(){
+
+    }
+
+    public Role(String name) {
+        this.name = name;
+    }
+
 }

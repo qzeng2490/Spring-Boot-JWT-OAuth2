@@ -1,7 +1,6 @@
 package com.qzeng2018.springreact.configuration;
 
 
-import com.qzeng2018.springreact.security.CustomAccessDeniedHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -25,8 +24,8 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
     @Autowired
     private ResourceServerTokenServices tokenServices;
 
-    @Autowired
-    private CustomAccessDeniedHandler accessDeniedHandler;
+//    @Autowired
+//    private CustomAccessDeniedHandler accessDeniedHandler;
 
     @Value("${security.jwt.resource-ids}")
     private String resourceIds;
@@ -46,10 +45,10 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/favicon.ico").permitAll()
                 .antMatchers("/console/**").permitAll().anyRequest().authenticated()
-                .and()
+//                .and()
 
-                .exceptionHandling()
-            .accessDeniedHandler(accessDeniedHandler)
+//                .exceptionHandling()
+//            .accessDeniedHandler(accessDeniedHandler)
             .and()
             .csrf().disable();
 

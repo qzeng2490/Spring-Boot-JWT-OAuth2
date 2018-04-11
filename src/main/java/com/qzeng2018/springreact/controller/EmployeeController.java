@@ -5,6 +5,7 @@ import com.qzeng2018.springreact.request.BaseDeleteReq;
 import com.qzeng2018.springreact.request.EmployeeReq;
 import com.qzeng2018.springreact.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +16,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/employee")
+@PreAuthorize("hasRole('AAA')")
 public class EmployeeController {
 
     @Autowired

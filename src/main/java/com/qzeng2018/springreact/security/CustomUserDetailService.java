@@ -29,7 +29,7 @@ public class CustomUserDetailService implements UserDetailsService {
             throw new UsernameNotFoundException("user not exist");
         }
 
-        System.out.println("User got from DB----------------------" + user.getPassword());
+        System.out.println("User got from DB----------------------" + user.getUsername());
 
 
         List<GrantedAuthority> authorities = new ArrayList<>();
@@ -37,6 +37,7 @@ public class CustomUserDetailService implements UserDetailsService {
         //加入用户角色
         for (Role role : roles) {
             authorities.add(new SimpleGrantedAuthority(role.getName()));
+            System.out.println("ROLE got from DB----------------------" + role.getName());
         }
         org.springframework.security.core.userdetails.User u =
                 new org.springframework.security.core.userdetails.User(user.getUsername(),
